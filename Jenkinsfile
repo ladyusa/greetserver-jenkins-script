@@ -4,7 +4,7 @@ pipeline {
           stage('Source') {
                steps {
                     git branch: 'main',
-                        url: 'https://github.com/ladyusa/greetserver'
+                        url: 'https://github.com/ladyusa/greetserver-jenkins'
                }
           }
           stage('Build') {
@@ -24,7 +24,9 @@ pipeline {
           }
           stage('Deploy') {
                steps {
-                    sh 'npm start'
+                    sh './jenkins/scripts/deliver.sh'
+                    input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                    sh './jenkins/scripts/kill.sh'
                }
           }
      }
