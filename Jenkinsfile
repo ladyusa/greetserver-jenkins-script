@@ -17,6 +17,11 @@ pipeline {
                     echo 'testing...'
                }
           }
+          stage('Performance Test') {
+               steps {
+                    echo 'performance testing...'
+               }
+          }
           stage('Deploy') {
                steps {
                     sh 'npm start'
