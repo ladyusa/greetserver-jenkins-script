@@ -4,7 +4,7 @@ pipeline {
           stage('Source') {
                steps {
                     git branch: 'main',
-                        url: 'https://github.com/ladyusa/greetserver-jenkins'
+                        url: 'https://github.com/ladyusa/greetserver-jenkins-script'
                }
           }
           stage('Build') {
